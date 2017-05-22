@@ -17,7 +17,7 @@ public class TestClick : MonoBehaviour, IPointerClickHandler {
 
 	// Get link and open page
 	public void OnPointerClick (PointerEventData eventData) {
-		int linkIndex = TMP_TextUtilities.FindIntersectingLink (textMessage, Input.mousePosition, Camera.main);
+		int linkIndex = TMP_TextUtilities.FindIntersectingLink (textMessage, eventData.position, eventData.pressEventCamera);
 		if (linkIndex == -1) 
 			return;
 		TMP_LinkInfo linkInfo = textMessage.textInfo.linkInfo[linkIndex];
